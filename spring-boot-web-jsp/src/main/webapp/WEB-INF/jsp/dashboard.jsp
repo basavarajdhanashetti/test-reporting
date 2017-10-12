@@ -8,7 +8,7 @@
 	<link rel="icon" type="image/png" href="img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>Light Bootstrap Dashboard</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -154,38 +154,27 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
+                                <h4 class="title">Product-wise Sale Statistics</h4>
+                                <p class="category">Overall Performance</p>
                             </div>
                             <div class="content">
-                                <div id="chartContainer" class="ct-chart ct-perfect-fourth" style="height: 370px; width: 100%;"></div>
-
+                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                                
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-8" style="display:none">
-                        <div class="card">
+                    <div class="col-md-6">
+                        <div class="card ">
                             <div class="header">
-                                <h4 class="title">Users Behavior</h4>
-                                <p class="category">24 Hours performance</p>
+                                <h4 class="title">Year-wise Sales</h4>
+                                <p class="category">All products</p>
                             </div>
                             <div class="content">
-                                <div id="chartHours" class="ct-chart"></div>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-history"></i> Updated 3 minutes ago
-                                    </div>
-                                </div>
+                                <div id="chartActivity" class="ct-chart"></div>
                             </div>
                         </div>
                     </div>
@@ -193,31 +182,9 @@
 
 
 
-                <div class="row" style="display:none">
-                    <div class="col-md-6">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">2014 Sales</h4>
-                                <p class="category">All products including Taxes</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
-
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-check"></i> Data information certified
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
+                <div class="row">
+                    
+                    <div class="col-md-12">
                         <div class="card ">
                             <div class="header">
                                 <h4 class="title">Tasks</h4>
@@ -400,7 +367,7 @@
 	<script src="js/light-bootstrap-dashboard.js"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="js/demo.js"></script>
+	<script src="js/test.js"></script>
 
 	<script type="text/javascript">
     	$(document).ready(function(){
@@ -418,34 +385,5 @@
 
     	});
 	</script>
-<script>
-window.onload = function() {
 
-var jsonData =  $.ajax({
-          url: "http://localhost:8080/sale/product",
-          dataType: "json",
-          async: false
-          }).responseText;
-
-alert(JSON.stringify(jsonData));
-
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title: {
-		text: "Desktop Search Engine Market Share - 2016"
-	},
-	data: [{
-		type: "pie",
-		startAngle: 240,
-		yValueFormatString: "##0.00\"%\"",
-		indexLabel: "{label} {y}",
-		dataPoints: [{y:26.392397467449292, label: "Office Supplies"},{y:38.844831159020686, label: "Technology"},{y:34.7627713735298, label: "Furniture"}]
-	}]
-});
-chart.render();
-
-}
-</script>
-
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </html>

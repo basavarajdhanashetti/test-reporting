@@ -15,11 +15,21 @@ public class DashboardAPI {
 	@GetMapping("/sale/product")
 	public ResponseEntity<?> productWiseSale(Map<String, Object> model){
 		try {
-			 return new ResponseEntity(new ReadWriteExcelFile().readXLSXFileString(), HttpStatus.OK);
-		} catch (Exception e) {
+			 return new ResponseEntity(ReadWriteExcelFile.reportPieData(ReportType.PRODUCT), HttpStatus.OK);
+		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
+	@GetMapping("/sale/year")
+	public ResponseEntity<?> dateWiseSale(Map<String, Object> model){
+		try {
+			 return new ResponseEntity(ReadWriteExcelFile.reportBarData(ReportType.YEAR), HttpStatus.OK);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
